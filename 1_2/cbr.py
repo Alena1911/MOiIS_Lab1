@@ -15,14 +15,12 @@ for currency in currencies:
         f'http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=01/01/2021&date_req2=14/11/2021&VAL_NM_RQ={currencies[currency]}')
     xml_roots.append(ElT.fromstring(currency_request.text))
 
-
-
 for i in range(len(xml_roots[0])):
     row = [xml_roots[0][i].attrib['Date']]
     for root in xml_roots:
         value = float(root[i][1].text.replace(',', '.'))
         nominal = int(root[i][0].text)
-        result_value = int((value/nominal)*10**rounding)/10**rounding
+        result_value = int((value / nominal) * 10 ** rounding) / 10 ** rounding
         row.append(result_value)
     data_table.append(row)
 
