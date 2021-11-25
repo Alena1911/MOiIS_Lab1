@@ -5,4 +5,4 @@ import numpy as np
 x = np.random.randint(low=-300, high=300, size=500)
 w = np.random.randint(low=-300, high=300, size=500)
 b = randint(-300, 300)
-print("Вывод: ", sum(x * w) + b)
+print("Вывод: ", np.dot(x, w) + b)
