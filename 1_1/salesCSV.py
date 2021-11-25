@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import csv
 
@@ -5,12 +6,13 @@ inputFile = 'sales.json'
 outputFile = 'output.csv'
 
 if __name__ == '__main__':
-    pdObj = pd.read_json(inputFile)
+    basePath = os.path.dirname(os.path.abspath(__file__))
+    pdObj = pd.read_json(basePath + '/' + inputFile)
     table = [['item', 'country', 'year', 'sales']]
     # идём по товарам
     for i, row in pdObj.iterrows():
         item = row['item']
-        lpd = pd.DataFrame(eval(f"[{row['sales_by_country']}]"))
+        lpd = pd.DataFrame([row['sales_by_country']])
         # идём по странам
         for country, data in lpd.items():
             # идём по годам
