@@ -7,15 +7,9 @@ Q = np.array([2, 10])
 Len90vec = 0
 Len30vec = 0
 
-l_q = 0
-for tQ in Q:
-    l_q += tQ ** 2
-l_q = np.sqrt(l_q)
+l_q = np.sqrt(np.sum(Q**2))
 for v in V:
-    l_v = 0
-    for l_l_v in v:
-        l_v += l_l_v ** 2
-    l_v = np.sqrt(l_v)
+    l_v = np.sqrt(np.sum(v**2))
     if np.degrees(np.arccos(np.dot(v, Q.reshape(-1, 1)) / (l_v * l_q))) < 90:
         Len90vec += 1
     if np.degrees(np.arccos(np.dot(v, Q.reshape(-1, 1)) / (l_v * l_q))) < 30:

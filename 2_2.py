@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x = np.linspace(-5, 5, 10000)
+x = np.linspace(-5, 5, 1000)
 f_y = x - (x ** 3) / 6 + (x ** 5) / 120 - (x ** 7) / 5040
 g_y = np.sin(x)
 
